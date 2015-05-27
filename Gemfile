@@ -13,6 +13,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'haml', '~> 4.0.6'
+gem 'bootstrap-sass', '~> 3.3.4.1'
+gem 'pry', '~> 0.10.1'
+
 gem 'mysql', '~> 2.9.1'
 
 # Use ActiveModel has_secure_password
