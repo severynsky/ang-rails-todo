@@ -1,0 +1,7 @@
+.lists
+  - @lists.each do |item|
+    %p.list-item{id: "list-item-#{item.id}"}
+      = item.body
+      %span
+        = link_to "edit", edit_list_path(item), class:( 'btn btn-default  btn-xs')
+        = link_to "delete", list_path(item), remote: true, method: :delete, class:( 'btn btn-danger  btn-xs')

@@ -16,3 +16,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).ready(function(){
+    $('.list-item').on('click', function(){
+       //console.log('click');
+    });
+});

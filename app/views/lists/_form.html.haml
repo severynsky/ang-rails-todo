@@ -1,4 +1,4 @@
-= bootstrap_form_for @list, html: {:multipart => true} do |task|
+= bootstrap_form_for @list, remote: true, html: {:multipart => true} do |task|
   - if @list.errors.any?
     #error_explanation
       %h2

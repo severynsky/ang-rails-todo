@@ -7,13 +7,20 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    respond_to do |format|
+      # format.html{}
+      format.js
+    end
   end
 
   def create
     @list = List.new(permitted_params)
-    if @list.save
-      redirect_to root_path, notice: "task has been created!"
-    end
+
+    respond_to do |format|
+      if @list.save
+        format.js { flash[:notice] = "task has been created!"}
+        end
+      end
   end
 
   def edit
@@ -27,10 +34,16 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    if @list.destroy
-      flash[:notice] =  "item has been deleted!"
-      redirect_to root_path
+
+    respond_to do |format|
+
+      if @list.destroy
+        # format.html {redirect_to root_path, notice: "item has been deleted!" }
+        format.js { flash[:notice] = "item was deleted"}
+      end
+
     end
+
   end
 
   private
