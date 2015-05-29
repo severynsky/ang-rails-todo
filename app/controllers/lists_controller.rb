@@ -8,7 +8,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
     respond_to do |format|
-      # format.html{}
+      format.html{}
       format.js
     end
   end
@@ -18,7 +18,8 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.js { flash[:notice] = "task has been created!"}
+        format.html { redirect_to root_path, notice: "task has been udpated!" }
+        # format.js { flash[:notice] = "task has been created!"}
         end
       end
   end
