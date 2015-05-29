@@ -1,11 +1,8 @@
-%div.col-xs-8.col-xs-offset-2{"ng-app" => "ToDo"}
+%div.col-xs-8.col-xs-offset-2{"ng-app" => "todo"}
   %br
-  %div.panel.panel-success
-    %div.panel-heading
-      %h1{"ng-if" => "name"}
-        Hello, {{name}}
-    .panel-body
-      %form.form-inline
-        .form-group
-          %input.form-control{"placeholder" => "Enter your name",  "ng-model" => "name"}
+  .view-container
+    %div.view-frame.animate-view{"ng-view" => ""}
+
+  %a{"href" => "/qqqs"}
+    link
   = link_to "ToDo App", lists_path, class:("btn btn-success")
