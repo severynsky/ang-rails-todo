@@ -27,10 +27,9 @@ test:
     socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql
-    encoding: utf8
-    database: todo_dev
+  adapter: postgresql
+    encoding: unicode
+    database: todo_dev_post
     pool: 5
     username: root
     password:
-    socket: /tmp/mysql.sock
