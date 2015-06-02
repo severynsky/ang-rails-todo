@@ -1,2 +1,20 @@
-%h3
-  hello 1
+%h3{"ng-init" => "name = ''"}
+  hello 1 {{ name }}
+%input{"ng-model" => "name"}
+%input{"ng-model" => "id"}
+  %hr
+%span.btn.btn-primary{"ng-click" => "print(name, id)", "autofocus" => ""}
+  click me!
+%hr
+%ul.task-list{"ng-if" => "items"}
+  %li{"ng-repeat" => "item in items","ng-hide" => "item.done"}
+    %p.task-item
+      {{ item.name }}: {{item.id}}
+      %span#done{"ng-click" => "makeItDone()"}
+        done!
+  %hr
+
+%ul{"ng-repeat" => "item in items"}
+  %li{"ng-show" => "item.done"}
+    %span.strike
+      {{item.name}}

@@ -1,3 +1,22 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.task-list{
+  list-style-type: none;
+  .task-item{
+    font-size: 1.2em;
+    span{
+      margin-left: 4em;
+      color: #c4c4c4;
+      transition: 0.1s;
+      cursor: pointer;
+      font-weight: 100;
+    }
+      span:hover{
+        color: #78c456;
+      }
+  }
+}
+.strike{
+  text-decoration: line-through;
+}
