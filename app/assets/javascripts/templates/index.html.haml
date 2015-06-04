@@ -1,2 +1,10 @@
 %h3
   hello 1
+%div.input-group.pull-left
+  %input.form-control{"ng-model" => "newtask"}
+%button.btn.btn-success.pull-right{"ng-click" => "addTask(newtask)"}
+  Add!
+.clearfix
+%ul
+  %li{"ng-repeat" => "task in tasks"}
+    {{ task.body }}

@@ -1,18 +1,15 @@
-todo = angular.module('todo',[
+@todo = angular.module('todo',[
   'templates',
   'ngRoute',
-  'controllers',
-])
-todo.config([ '$routeProvider',
-              ($routeProvider)->
-                $routeProvider
-                .when('/',
-                  templateUrl: "assets/templates/index.html"
-                  controller: 'ToDoController'
-                )
+  'ngResource'
 ])
 
-controllers = angular.module('controllers', [])
-controllers.controller('ToDoController', [ '$scope',
+@todo.run(->
+  console.log 'angular is running'
+)
+
+#@controllers = angular.module('controllers', [])
+@todo.controller('ToDoController', [ '$scope',
   ($scope) ->
+    $scope.tasks = ["one", "two", "three"]
 ])

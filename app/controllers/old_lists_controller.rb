@@ -2,34 +2,49 @@ class ListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: @lists = List.all
-  end
-
-  def show
+    @lists = List.all
   end
 
   def new
     @list = List.new
+    respond_to do |format|
+      format.html{}
+      format.js
+    end
   end
 
   def create
     @list = List.new(permitted_params)
-    @list.save
+
+    respond_to do |format|
+      if @list.save
+        format.html { redirect_to root_path, notice: "task has been udpated!" }
+        # format.js { flash[:notice] = "task has been created!"}
+        end
+      end
   end
 
   def edit
   end
 
   def update
+    # binding.pry
     if @list.update(permitted_params)
       redirect_to root_path, notice: "task has been udpated!"
     end
   end
 
   def destroy
+
+    respond_to do |format|
+
       if @list.destroy
-        flash[:notice] = "item was deleted"
+        # format.html {redirect_to root_path, notice: "item has been deleted!" }
+        format.js { flash[:notice] = "item was deleted"}
       end
+
+    end
+
   end
 
   private

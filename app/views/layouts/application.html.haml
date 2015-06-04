@@ -1,5 +1,5 @@
 !!! 5
-%html
+%html{"ng-app" => "todo"}
   %head
     %title Todo app
     = stylesheet_link_tag    'application', media: 'all'
@@ -12,3 +12,13 @@
         %br
         = content_tag :div, msg, class: 'alert alert-info'
       = yield
+      .clearfix
+      %hr
+      .col-xs-6.col-xs-offset-3
+        %a.btn.btn-default{"href" => "#/"}
+          link
+        %a.btn.btn-default{"href" => "#/second"}
+          second page
+        %a.btn.btn-default{"href" => "#/third"}
+          list
+        = link_to "ToDo App", lists_path, class:("btn btn-success")
