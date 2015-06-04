@@ -1,20 +1,17 @@
-todo.controller('ToContr', [ '$scope', '$resource'
-  ($scope, $resource) ->
-    Tasks = $resource("/lists/:id", {id: '@id'},{update: {method: 'PUT'}})
-#    debugger
+todo.controller('ToContr', [ '$scope', '$resource', '$routeParams'
+  ($scope, $resource, $routeParams) ->
+    Tasks = $resource("/lists/:id", {id: '@id'},{ save: {method: 'POST'} })
+    $scope.lists = Tasks.query()
+    $scope.task = {
+      list: {}
+    }
+    $scope.addTask =() ->
+      Tasks.save($scope.task)
 
-    $scope.tasks = Tasks.query()
-
-    $scope.addTask =(newtask) ->
-      debugger
-      if newtask != ''
-#        $scope.tasks.map(function(el){
-#          el.body = newtask;
-#          Tasks.save({id: el.id, task: el});
-#        });
-        task = Tasks.save(newtask)
-        $scope.tasks.push(newtask)
-        console.log newtask
-        $scope.newtask = {}
-
+    $scope.show =(id) ->
+      toshow = $resource("/lists/:id").get({id: id}, ->
+        date = new Date(toshow.created_at)
+        createdDate = date.getDate() + 1
+        $scope.print = {body: toshow.body, created_at: createdDate}
+      )
 ])
