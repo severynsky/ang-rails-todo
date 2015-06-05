@@ -35,6 +35,7 @@ class ListsController < ApplicationController
 
   def destroy
       if @list.destroy
+        render json: @list
         flash[:notice] = "item was deleted"
       end
   end

@@ -1,5 +1,5 @@
-todo.controller('ToContr', [ '$scope', '$resource', '$routeParams'
-  ($scope, $resource, $routeParams) ->
+todo.controller('ToContr', [ '$scope', '$resource', '$route', '$routeParams'
+  ($scope, $resource, $route, $routeParams) ->
     Tasks = $resource("/lists/:id", {id: '@id'},{ save: {method: 'POST'} })
     $scope.lists = Tasks.query()
     $scope.task = {
@@ -7,6 +7,11 @@ todo.controller('ToContr', [ '$scope', '$resource', '$routeParams'
     }
     $scope.addTask =() ->
       Tasks.save($scope.task)
+      reload()
+
+    reload = ->
+      $route.reload();
+
 
     $scope.show =(id) ->
       toshow = $resource("/lists/:id").get({id: id}, ->
@@ -14,4 +19,8 @@ todo.controller('ToContr', [ '$scope', '$resource', '$routeParams'
         createdDate = date.getDate() + 1
         $scope.print = {body: toshow.body, created_at: createdDate}
       )
+    $scope.delete =(item) ->
+      console.log item
+      Tasks.delete(item)
+      reload()
 ])
