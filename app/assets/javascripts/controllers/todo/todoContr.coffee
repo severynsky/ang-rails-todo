@@ -1,26 +1,40 @@
-todo.controller('ToContr', [ '$scope', '$resource', '$route', '$routeParams'
-  ($scope, $resource, $route, $routeParams) ->
-    Tasks = $resource("/lists/:id", {id: '@id'},{ save: {method: 'POST'} })
-    $scope.lists = Tasks.query()
-    $scope.task = {
-      list: {}
-    }
-    $scope.addTask =() ->
-      Tasks.save($scope.task)
-      reload()
+todo.controller('ToContr', [ '$scope', '$resource', '$route', 'List', '$routeParams'
+  ($scope, $resource, $route, List, $routeParams) ->
 
-    reload = ->
-      $route.reload();
+    load = ->
+      $scope.list = List.query()
+      window.$list = $scope.list
+
+    load()
+
+    $scope.addTask =() ->
+      List.save($scope.task, ->
+#        $scope.lists.push($scope.task.list.body)
+        load()
+        $scope.task = ""
+      )
+    $scope.edit =(task) ->
+      task.body = "new some"
+      task.$update()
 
 
     $scope.show =(id) ->
-      toshow = $resource("/lists/:id").get({id: id}, ->
-        date = new Date(toshow.created_at)
-        createdDate = date.getDate() + 1
-        $scope.print = {body: toshow.body, created_at: createdDate}
+       taskitem = List.get({id: id}, ->
+         $scope.print = {body: taskitem.body, created_at: taskitem.created_at}
       )
+
+
+#      toedit = $resource("/lists/:id", update: { method: 'PUT' }).get({id: id.id}, ->
+#        console.log toedit
+#        debugger
+#        $scope.task = toedit
+#        $scope.addTask = ->
+#          debugger
+#          toedit.update()
+#          $scope.task = ""
+
     $scope.delete =(item) ->
       console.log item
-      Tasks.delete(item)
-      reload()
+      List.delete(item)
+      load()
 ])

@@ -29,7 +29,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(permitted_params)
-      redirect_to root_path, notice: "task has been udpated!"
+      render json: @list
     end
   end
 

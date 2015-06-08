@@ -4,22 +4,26 @@
       Todo App:
     %hr
     %div.input-group.pull-left
-      %input.form-control{"ng-model" => "task.list.body"}
+      %input.form-control{"ng-model" => "task.body"}
     %button.btn.btn-success.pull-right{"ng-click" => "addTask()"}
-      Add!
-    .clearfix
-    %hr
-    %ul
-      %li{"ng-repeat" => "task in lists"}
-        %p{"ng-click" => "show(task.id)"}
-          {{ task.body }}
-          %span{"ng-click" => "delete(task)"}
-            x
+      Do it!
+  .clearfix
+  %hr
+  %ul
+    %li{"ng-repeat" => "task in list"}
+      %p{"ng-click" => "show(task.id)"}
+        {{ task.body }}
+        %span{"ng-click" => "edit(task)"}
+          edit
+        %span{"ng-click" => "delete(task)"}
+          x
     %hr
   .clearfix
     %div{"ng-show" => "print"}
       %h4
         {{ print.body }}
       %p
-        {{ print.created_at }}
+        created at:
+        %b
+        {{ print.created_at | date: "MM/dd/yyyy"}}
   .clearfix
