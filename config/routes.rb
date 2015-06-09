@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :lists
+    resources :lists, defaults: { format: :json }
+    resources :categories, defaults: { format: :json }
     resources :home
   get "/qqqs" => 'home#index'
   # Example resource route with options:

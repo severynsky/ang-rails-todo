@@ -6,7 +6,8 @@ todo.factory('List', function($resource){
             method: 'PUT' //this method issues a PUT request
         },
         getArray: {
-            method: 'GET', isArray: true
+            method: 'GET',
+            isArray: false
         }
     });
 });

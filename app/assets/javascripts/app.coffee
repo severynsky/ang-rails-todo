@@ -1,7 +1,9 @@
 @todo = angular.module('todo', [
   'templates',
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  'tabsSwitcher',
+  'ui.bootstrap'
 ])
 
 @todo.run(->

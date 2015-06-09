@@ -1,23 +1,29 @@
-.ng-todo
-  .col-xs-10.col-xs-offset-1
+.ng-todo.col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-12.col-sm-offset-0
+  .some
     %h3
       Todo App:
     %hr
-    %div.input-group.pull-left
-      %input.form-control{"ng-model" => "task.body"}
-    %button.btn.btn-success.pull-right{"ng-click" => "addTask()"}
-      Do it!
+    .input-container
+      %div.input-group.pull-left
+        %input.form-control{"ng-model" => "task.body"}
+      %button.btn.btn-success.pull-right{"ng-click" => "addTask()"}
+        Do it!
   .clearfix
   %hr
-  %ul
-    %li{"ng-repeat" => "task in list"}
-      %p{"ng-click" => "show(task.id)"}
-        {{ task.body }}
-        %span{"ng-click" => "edit(task)"}
-          edit
-        %span{"ng-click" => "delete(task)"}
-          x
-    %hr
+
+  %tabset
+    %tab{"ng-repeat" => "cat in catlist.categories", "heading" => "{{cat.body}}", "active" => "cat.active", "disable" => "cat.disabled"}
+      %br
+      %ul
+        %li{"ng-repeat" => "task in cat.lists"}
+          %p{"ng-click" => "show(task.id)"}
+            {{ task.body }}
+            %span{"ng-click" => "edit(task)"}
+              edit
+            %span{"ng-click" => "delete(task)"}
+              x
+      %hr
+
   .clearfix
     %div{"ng-show" => "print"}
       %h4
@@ -25,5 +31,8 @@
       %p
         created at:
         %b
-        {{ print.created_at | date: "MM/dd/yyyy"}}
+          {{ print.created_at | date: "MM/dd/yyyy"}}
+        category:
+        %b
+          {{ print.cat_title }}
   .clearfix

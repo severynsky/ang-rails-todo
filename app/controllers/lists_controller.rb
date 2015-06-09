@@ -1,13 +1,14 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
   def index
-    render json: @lists = List.all
+    @lists = List.all
+    # respond_to :json
+    # render json: @lists
   end
 
   def show
-    @list = List.find(params[:id])
-    # respond_to :json
-    render json: @list
+    @task = List.find(params[:id])
+    # render json: @task
   end
 
   # def new
@@ -28,6 +29,7 @@ class ListsController < ApplicationController
   end
 
   def update
+      binding.pry
     if @list.update(permitted_params)
       render json: @list
     end
