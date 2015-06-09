@@ -14,6 +14,7 @@ todo.controller('ToContr', [ '$scope', '$resource', '$route', 'List', 'getList',
 
     $scope.addTask =() ->
       List.save($scope.task, ->
+#        debugger
 #        $scope.lists.push($scope.task.list.body)
         load()
         $scope.task = ""

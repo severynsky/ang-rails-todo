@@ -45,7 +45,7 @@ class ListsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:list).permit(:body)
+    params.require(:list).permit(:body, :category_id)
   end
 
   def find_list

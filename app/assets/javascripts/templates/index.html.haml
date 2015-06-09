@@ -1,11 +1,18 @@
 .ng-todo.col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-12.col-sm-offset-0
   .some
     %h3
-      Todo App:
+      Get Shit Done!
     %hr
     .input-container
       %div.input-group.pull-left
-        %input.form-control{"ng-model" => "task.body"}
+        %input.form-control{"ng-model" => "task.body", "placeHolder" => "Your task goes here"}
+        %br
+        Select category:
+        %select{"ng-model" => "task.category_id", "convert-to-number" => ""}
+          %option{"value" => "1"}
+            Home
+          %option{"value" => "2"}
+            work
       %button.btn.btn-success.pull-right{"ng-click" => "addTask()"}
         Do it!
   .clearfix
@@ -22,8 +29,6 @@
               edit
             %span{"ng-click" => "delete(task)"}
               x
-      %hr
-
   .clearfix
     %div{"ng-show" => "print"}
       %h4
