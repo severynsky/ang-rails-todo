@@ -19,7 +19,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
+  host: localhost
   database: deng1cko6lf2v7
-  pool: 5
   username: mkhfluainuffuf
   password: qm1iI5xv05hkqevg359yHpawn3
