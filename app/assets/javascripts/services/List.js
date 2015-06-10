@@ -1,6 +1,6 @@
 var todo = angular.module('todo');
 
-todo.factory('List', function($resource){
+todo.factory('List',['$resource', function($resource){
     return $resource('/lists/:id', {id: '@id'}, {
         update: {
             method: 'PUT' //this method issues a PUT request
@@ -10,4 +10,4 @@ todo.factory('List', function($resource){
             isArray: false
         }
     });
-});
+}]);
