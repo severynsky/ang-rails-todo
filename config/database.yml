@@ -19,7 +19,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  host: localhost
+  host: ec2-54-83-46-91.compute-1.amazonaws.com
   database: deng1cko6lf2v7
   username: mkhfluainuffuf
   password: qm1iI5xv05hkqevg359yHpawn3
