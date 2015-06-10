@@ -18,8 +18,8 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: todo_dev_post
+  encoding: utf8
+  database: deng1cko6lf2v7
   pool: 5
-  username: root
-  password:
+  username: mkhfluainuffuf
+  password: qm1iI5xv05hkqevg359yHpawn3
