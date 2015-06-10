@@ -28,5 +28,7 @@ module ToDo
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts", "templates")
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
+    config.assets.js_compressor = Uglifier.new(mangle: false)
   end
 end
