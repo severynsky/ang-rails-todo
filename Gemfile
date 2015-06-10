@@ -21,7 +21,7 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem "foreman"
 
-
+gem 'pg'
 gem 'mysql', '~> 2.9.1'
 
 # Use ActiveModel has_secure_password
