@@ -49,8 +49,8 @@
           <file leaf-file-name="todoContr.coffee" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/assets/javascripts/controllers/todo/todoContr.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.48588958" vertical-offset="22" max-vertical-offset="1276">
-                  <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.5128834" vertical-offset="22" max-vertical-offset="1298">
+                  <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -1329,8 +1329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/controllers/todo/todoContr.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48588958" vertical-offset="22" max-vertical-offset="1276">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.5128834" vertical-offset="22" max-vertical-offset="1298">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding />
         </state>
       </provider>
