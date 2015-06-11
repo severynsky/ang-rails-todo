@@ -1,6 +1,7 @@
 todo.controller('ToContr', [ '$scope', '$resource', '$route', 'List', 'getCat', '$routeParams'
   ($scope, $resource, $route, List, getCat, $routeParams) ->
     window.List = List;
+    window.body = $scope.task
 
     load = ->
       $scope.list = List.getArray()
@@ -17,14 +18,17 @@ todo.controller('ToContr', [ '$scope', '$resource', '$route', 'List', 'getCat', 
         load()
         $scope.task = ""
       )
+
     $scope.edit =(task) ->
-      $scope.taskEl = task  
-      # debugger
-      taskitem = List.get({id: $scope.taskEl.id}, ->
-        taskitem.body = "new some"
-        taskitem.$update()
-      )
-      load()
+      $scope.taskEl = task
+      $scope.task = task
+      $scope.addTask =() ->
+        taskitem = List.get({id: $scope.taskEl.id}, ->  
+          taskitem.body = $scope.task.body
+          taskitem.category_id = $scope.task.category_id
+          taskitem.$update()
+          load()
+        )
 
     $scope.show =(id) ->
       taskitem = List.get({id: id}, ->
