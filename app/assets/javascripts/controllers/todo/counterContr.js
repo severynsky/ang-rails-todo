@@ -1,4 +1,4 @@
-todo.controller('counterContr', function($scope, myFact){
+todo.controller('counterContr', ['$scope', 'myFact', function($scope, myFact){
     $scope.count = 2;
     $scope.showCount = $scope.count;
     $scope.doIt = function(){
@@ -7,4 +7,4 @@ todo.controller('counterContr', function($scope, myFact){
         $scope.showCount = $scope.count;
         $scope.count = "";
     };
-});
+}]);

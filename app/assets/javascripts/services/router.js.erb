@@ -8,11 +8,11 @@ todo.config(['$routeProvider',
                 controller: 'ToContr'
             }).
             when('/second', {
-                templateUrl: "assets/templates/second.html",
+                templateUrl: "<%=asset_path 'assets/templates/second.html' %>",
                 controller: 'counterContr'
             }).
             when('/third', {
-                templateUrl: "assets/templates/third.html",
+                templateUrl: "<%=asset_path 'assets/templates/third.html' %>",
                 controller: 'thirdContr'
             }).
             otherwise({

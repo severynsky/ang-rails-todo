@@ -24,7 +24,7 @@ class ListsController < ApplicationController
   end
 
   def update
-      binding.pry
+      # binding.pry
     if @list.update(permitted_params)
       render json: @list
     end
