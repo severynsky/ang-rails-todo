@@ -11,11 +11,6 @@ class ListsController < ApplicationController
     # render json: @task
   end
 
-  # def new
-  #   @list = List.new
-  #   respond_with(@list)
-  # end
-
   def create
     @list = List.new(permitted_params)
     if @list.save
